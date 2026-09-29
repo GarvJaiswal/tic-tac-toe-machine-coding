@@ -15,7 +15,7 @@ public class DiagonalWinningStrategy implements WinningStrategy {
     public DiagonalWinningStrategy(int size) {
         this.size = size;
         this.leftDiagonalMap = new HashMap<>();
-        this.leftDiagonalMap = new HashMap<>();
+        this.rightDiagonalMap = new HashMap<>();
     }
 
     @Override
@@ -35,14 +35,15 @@ public class DiagonalWinningStrategy implements WinningStrategy {
                 leftDiagonalMap.put(character, 0);
             }
             leftDiagonalMap.put(character, leftDiagonalMap.get(character) + 1);
+            return leftDiagonalMap.get(character) == size;
         }
         if (row + col == size - 1) {
             if (!rightDiagonalMap.containsKey(character)) {
                 rightDiagonalMap.put(character, 0);
             }
             rightDiagonalMap.put(character, rightDiagonalMap.get(character) + 1);
+            return rightDiagonalMap.get(character) == size;
         }
-        return leftDiagonalMap.get(character) == size ||
-                rightDiagonalMap.get(character) == size;
+        return false;
     }
 }

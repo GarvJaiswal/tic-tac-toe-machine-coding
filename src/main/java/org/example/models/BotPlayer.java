@@ -15,7 +15,7 @@ public class BotPlayer extends Player{
                      BotDifficultyLevel difficultyLevel){
         super(name,symbol,playerType);
         this.difficultyLevel = difficultyLevel;
-        this.playingStrategy = BotPlayingStrategyFactory.getBotPlayingStrategy(difficultyLevel);
+
 
 //        This violates SRP and OCP
 //        Use factory design pattern
@@ -28,6 +28,14 @@ public class BotPlayer extends Player{
 //        else{
 //            this.playingStrategy = new HardBotPlayingStrategy();
 //        }
+        this.playingStrategy = BotPlayingStrategyFactory.getBotPlayingStrategy(difficultyLevel);
 
+
+    }
+
+    public Move makeMove(Board board){
+        Move move = playingStrategy.makeMove(board);
+        move.setPlayer(this);
+        return move;
     }
 }

@@ -13,7 +13,7 @@ public abstract class Player {
         this.playerType = playerType;
     }
 
-    public abstract Move makeMove(Board board)
+    public abstract Move makeMove(Board board);
 
     public String getName() {
         return name;

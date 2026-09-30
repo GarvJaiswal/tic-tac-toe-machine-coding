@@ -20,7 +20,8 @@ public class Main {
         int size = 3;
         List<Player> players = new ArrayList<>();
         players.add(new HumanPlayer("Garv",new Symbol('X'),PlayerType.HUMAN));
-        players.add(new BotPlayer("Bot",new Symbol('O'),PlayerType.BOT, BotDifficultyLevel.EASY));
+//        players.add(new BotPlayer("Bot",new Symbol('O'),PlayerType.BOT, BotDifficultyLevel.EASY));
+        players.add(new BotPlayer("Bot",new Symbol('O'),PlayerType.BOT, BotDifficultyLevel.MEDIUM));
 
         List<WinningStrategy> winningStrategies = new ArrayList<>();
         winningStrategies.add(new RowWinningStrategy(size));
